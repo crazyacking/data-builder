@@ -1,0 +1,60 @@
+# depslib dependency file v1.0
+1462620391 source:h:\code_fantasy\data-builder\src\main.cpp
+	"build.h"
+
+1462624129 h:\code_fantasy\data-builder\src\build.h
+	"include/mingw.h"
+	"include/factory.h"
+	"include/get_config.h"
+	"worker.cpp"
+
+1462608229 h:\code_fantasy\data-builder\src\include\test.h
+	<queue>
+	<cstdio>
+	<set>
+	<string>
+	<stack>
+	<cmath>
+	<climits>
+	<map>
+	<cstdlib>
+	<iostream>
+	<vector>
+	<algorithm>
+	<cstring>
+
+1462624090 h:\code_fantasy\data-builder\src\include\mingw.h
+	<queue>
+	<cstdio>
+	<set>
+	<string>
+	<stack>
+	<cmath>
+	<climits>
+	<map>
+	<cstdlib>
+	<iostream>
+	<vector>
+	<algorithm>
+	<cstring>
+	<bits/stdc++.h>
+
+1462624045 h:\code_fantasy\data-builder\src\include\factory.h
+	"mingw.h"
+
+1462623948 h:\code_fantasy\data-builder\src\include\get_config.h
+	<bits/stdc++.h>
+	<string>
+	<map>
+
+1462623936 h:\code_fantasy\data-builder\src\worker.cpp
+	"include/mingw.h"
+	"generator.cpp"
+	"include/data_structure.h"
+
+1462623909 h:\code_fantasy\data-builder\src\generator.cpp
+	"include/mingw.h"
+	"include/data_structure.h"
+
+1462623931 h:\code_fantasy\data-builder\src\include\data_structure.h
+
