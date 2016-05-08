@@ -13,12 +13,16 @@ string get_freopen_stdin_line(Configuration &config);
 
 string get_freopen_stdout_line(Configuration &config);
 
+bool write_to_local_file();
+
+bool compile_standard_code_file();
+
 
 /*
 find the first '{' int main() function.
 In order to add redirect code to main() function later.
 */
-bool load_standard_code_file(Configuration& config)
+bool make_standard_code_file(Configuration& config)
 {
     code_buffer.clear();
     ifstream fin("..\\standard_code_file\\main.cpp");
@@ -76,7 +80,6 @@ bool load_standard_code_file(Configuration& config)
                     front_str+=back_str;
 
                     code_buffer[i]=front_str;
-                    cout<<code_buffer[i]<<endl;
 
                 	row=i;
                 	col=j;
@@ -93,14 +96,14 @@ bool load_standard_code_file(Configuration& config)
     	exit(-1);
     }
 
-    puts("===============================Program Run Here !=============================");
+    write_to_local_file();
 
-    for(int i=0;i<code_buffer.size();++i)
+    if(compile_standard_code_file()!=0)
     {
-        cout<<code_buffer[i]<<endl;
+        puts("error : can't compile \"..\\bin\\main.cpp\" file .");
+    	exit(-1);
     }
-    puts("===============================Program Run Here !=============================");
-
+    else puts("successful compile standard code file .");
 
     return 1;
 }
@@ -116,7 +119,22 @@ bool is_main_func(string code_line)
 }
 
 
+bool write_to_local_file()
+{
+    char local_file_name[]="..\\bin\\main.cpp";
+    ofstream fout(local_file_name);
+    for(int i=0;i<code_buffer.size();++i)
+    {
+        fout<<code_buffer[i]<<endl;
+    }
+    return 1;
+}
 
+
+bool compile_standard_code_file()
+{
+    return system("g++ -o ..\\bin\\main.exe    ..\\bin\\main.cpp");
+}
 
 
 #endif // _MAKE_STANDARD_CODE_FILE_H_

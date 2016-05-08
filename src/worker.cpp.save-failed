@@ -6,7 +6,6 @@
 #include "include/mingw.h"
 #include "generator.cpp"
 #include "include/data_structure.h"
-#include "middleware.cpp"
 
 
 
@@ -24,14 +23,12 @@ void generate_input_file(Configuration &conf)
 //    Configuration conf;
 //    init_conf(config,conf);
 
-
-
     for(int i=0; i<conf.TEST_CASE_NUM; ++i)
     {
         ofstream fout("..\\bin\\tmp.in");
         create_one_test_case(fout);
         fout.close();
-        create_tmp_out();
+        fun();
     }
 }
 
@@ -42,6 +39,10 @@ void init_conf(map<string,string>& config,Configuration& conf)
     conf.CAPACITY_NUM=get_num(config["CAPACITY_NUM"]);
     conf.CREATE_SLICE=get_bool(config["CREATE_SLICE"]);
     conf.OUTPUT_PATH=config["OUTPUT_PATH"];
+//    cout<<conf.TEST_CASE_NUM<<endl;
+//    cout<<conf.CAPACITY_NUM<<endl;
+//    cout<<conf.CREATE_SLICE<<endl;
+//    cout<<conf.OUTPUT_PATH<<endl;
 }
 
 int get_num(string s)

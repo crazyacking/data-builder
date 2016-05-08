@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1462678324 source:h:\code_fantasy\data-builder\src\main.cpp
+1462695582 source:h:\code_fantasy\data-builder\src\main.cpp
 	"build.h"
 
 1462629418 h:\code_fantasy\data-builder\src\build.h
@@ -48,18 +48,23 @@
 	<string>
 	<map>
 
-1462678371 h:\code_fantasy\data-builder\src\worker.cpp
+1462695828 h:\code_fantasy\data-builder\src\worker.cpp
 	"include/mingw.h"
 	"generator.cpp"
 	"include/data_structure.h"
+	"middleware.cpp"
 
-1462627493 h:\code_fantasy\data-builder\src\generator.cpp
+1462694991 h:\code_fantasy\data-builder\src\generator.cpp
 	"include/mingw.h"
 	"include/data_structure.h"
 	"include/factory.h"
 
-1462623931 h:\code_fantasy\data-builder\src\include\data_structure.h
+1462694034 h:\code_fantasy\data-builder\src\include\data_structure.h
 
-1462679980 h:\code_fantasy\data-builder\src\make_standard_code_file.cpp
+1462693935 h:\code_fantasy\data-builder\src\make_standard_code_file.cpp
 	"build.h"
+
+1462696186 h:\code_fantasy\data-builder\src\middleware.cpp
+	"build.h"
+	<windows.h>
 
