@@ -6,6 +6,9 @@
 #include "include/factory.h"
 #include "include/get_config.h"
 #include "worker.cpp"
+#include "make_standard_code_file.cpp"
+
+using namespace std;
 
 /***************************  DEFINE ******************************/
 #define CONFIG_FILE "..\\conf\\databuilder.conf"

@@ -17,11 +17,11 @@ int get_num(string s);
 void init_conf(map<string,string>& config,Configuration& conf);
 
 
-void work(map<string,string>& config)
+void generate_input_file(Configuration &conf)
 {
     // init conf
-    Configuration conf;
-    init_conf(config,conf);
+//    Configuration conf;
+//    init_conf(config,conf);
 
     Test_case test_case;
 
