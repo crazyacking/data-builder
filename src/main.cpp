@@ -7,7 +7,7 @@ void load_config_from_local(Configuration &config)
     map<string,string> conf_map;
     if(!ReadConfig(CONFIG_FILE,conf_map))
     {
-        puts("error : load config from local file failed.");
+        puts("error 01: load config from local file failed.");
         exit(-1);
     }
     init_conf(conf_map,config);
@@ -24,6 +24,5 @@ int main()
 
     generate_input_file(config);
 
-//    work(config);
     return 0;
 }

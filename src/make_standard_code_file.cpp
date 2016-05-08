@@ -100,7 +100,7 @@ bool make_standard_code_file(Configuration& config)
 
     if(compile_standard_code_file()!=0)
     {
-        puts("error : can't compile \"..\\bin\\main.cpp\" file .");
+        puts("error : can't compile \"..\\bin\\standard_code_file.cpp\" file .");
     	exit(-1);
     }
     else puts("successful compile standard code file .");
@@ -121,7 +121,7 @@ bool is_main_func(string code_line)
 
 bool write_to_local_file()
 {
-    char local_file_name[]="..\\bin\\main.cpp";
+    char local_file_name[]="..\\bin\\standard_code_file.cpp";
     ofstream fout(local_file_name);
     for(int i=0;i<code_buffer.size();++i)
     {
@@ -133,7 +133,7 @@ bool write_to_local_file()
 
 bool compile_standard_code_file()
 {
-    return system("g++ -o ..\\bin\\main.exe    ..\\bin\\main.cpp");
+    return system("g++ -o ..\\bin\\standard_code_file.exe    ..\\bin\\standard_code_file.cpp");
 }
 
 

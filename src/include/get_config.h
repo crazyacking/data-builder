@@ -128,6 +128,7 @@ bool ReadConfig(const string & filename, map<string, string> & m)
 
 void PrintConfig(const map<string, string> & m)
 {
+
     puts("-------------------------------  configuration  -----------------------------");
 
     map<string, string>::const_iterator mite = m.begin();

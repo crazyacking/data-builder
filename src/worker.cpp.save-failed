@@ -6,29 +6,45 @@
 #include "include/mingw.h"
 #include "generator.cpp"
 #include "include/data_structure.h"
+#include "middleware.cpp"
 
 
 
 int get_num(string s);
 bool get_bool(string s);
 int get_num(string s);
-
+bool init_output_folder(Configuration &conf);
 
 void init_conf(map<string,string>& config,Configuration& conf);
 
 
 void generate_input_file(Configuration &conf)
 {
-    // init conf
-//    Configuration conf;
-//    init_conf(config,conf);
-
+    init_output_folder(conf);
     for(int i=0; i<conf.TEST_CASE_NUM; ++i)
     {
         ofstream fout("..\\bin\\tmp.in");
         create_one_test_case(fout);
         fout.close();
-        fun();
+        create_tmp_out();
+    }
+}
+
+
+bool init_output_folder(Configuration &conf)
+{
+    puts("===============================Program Run Here !=============================");
+
+    system("del/f/a/q ..\\output\\");
+    int number_of_group=conf.TEST_CASE_NUM/conf.CAPACITY_NUM;
+    if(conf.TEST_CASE_NUM%conf.CAPACITY_NUM!=0)
+        number_of_group++;
+    char cmd[200];
+    for(int i=1;i<=number_of_group;++i)
+    {
+        sprintf(cmd,"cd ..\\output\\ .> %d.in",i);
+        puts(cmd);
+
     }
 }
 
@@ -39,10 +55,6 @@ void init_conf(map<string,string>& config,Configuration& conf)
     conf.CAPACITY_NUM=get_num(config["CAPACITY_NUM"]);
     conf.CREATE_SLICE=get_bool(config["CREATE_SLICE"]);
     conf.OUTPUT_PATH=config["OUTPUT_PATH"];
-//    cout<<conf.TEST_CASE_NUM<<endl;
-//    cout<<conf.CAPACITY_NUM<<endl;
-//    cout<<conf.CREATE_SLICE<<endl;
-//    cout<<conf.OUTPUT_PATH<<endl;
 }
 
 int get_num(string s)

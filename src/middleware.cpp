@@ -4,9 +4,9 @@
 #include "build.h"
 #include <windows.h>
 
-void create_tmp_out()
+bool create_tmp_out()
 {
-    system("..\\bin\\main.exe ..\\bin\\tmp.in ..\\bin\\tmp.out");
+    return system("..\\bin\\standard_code_file.exe   ..\\bin\\tmp.in   ..\\bin\\tmp.out");
 }
 
 
