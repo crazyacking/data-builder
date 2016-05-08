@@ -1,7 +1,6 @@
 #pragma once
 
 #ifndef _MIDDLEWARE_H_
-#include "build.h"
 #include <windows.h>
 
 bool create_tmp_out()

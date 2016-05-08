@@ -1,3 +1,12 @@
+/**
+ * -----------------------------------------------------------------
+ * Copyright (c) 2016 crazyacking.All rights reserved.
+ * -----------------------------------------------------------------
+ *       Author: crazyacking
+ *       Date  : 2016-05-06-17.43
+ */
+
+
 #include "build.h"
 
 Configuration config;
@@ -11,7 +20,6 @@ void load_config_from_local(Configuration &config)
         exit(-1);
     }
     init_conf(conf_map,config);
-//    PrintConfig(conf_map);
 }
 
 int main()

@@ -2,30 +2,24 @@
 
 #ifndef _GENERATOR_H_
 #define _GENERATOR_H_
-#include "include/mingw.h"
-#include "include/data_structure.h"
-#include "include/factory.h"
 
 
 /**<
-* * 采用“值-结果”的传参方法，返回一个Test_case对象
-* * Test_case对象中保存了三个vector<string>类型的数据缓冲区(input_file_buffer,output_file_buffer,slice_file_buffer)
-* *
+* * 只需在create_one_test_case()构造一个随机的测试用例，并使用cout输出即可
 */
 
 /******************************************************************/
 /******************************************************************/
 /**
-        修改create_one_test_case()函数，构造Test_case对象
+        修改create_one_test_case()函数
 **/
 /******************************************************************/
 /******************************************************************/
 
-char buffer[500010];
-
 
 void create_one_test_case(ofstream &cout)
 {
+    // 以a+b为例,随机两个数，用cout输出(注意:这儿的cout是经过重载的，该函数中的所有输出都只能用cout)
     cout<<rand_number(0,0xffffff)<<" "<<rand_number(0,0xffffff)<<endl;
 }
 

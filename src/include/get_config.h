@@ -1,7 +1,6 @@
 #pragma once
 
-#include <bits/stdc++.h>
-using namespace std;
+
 
 /****************************************************************************
 *   Objective: read the information of configuration files, deposit in the map<key,value>.
@@ -10,8 +9,7 @@ using namespace std;
 
 #ifndef _GET_CONFIG_H_
 #define _GET_CONFIG_H_
-#include <string>
-#include <map>
+#include "mingw.h"
 #define COMMENT_CHAR '#'
 
 bool ReadConfig(const string & filename, map<string, string> & m);
@@ -44,7 +42,7 @@ void Trim(string & str)
     {
         return;
     }
-    int i, start_pos, end_pos;
+    unsigned int i, start_pos, end_pos;
     for (i = 0; i < str.size(); ++i)
     {
         if (!IsSpace(str[i]))

@@ -4,8 +4,8 @@
 #define _WORKER_H_
 
 #include "include/mingw.h"
-#include "generator.cpp"
-#include "include/data_structure.h"
+#include "construct.cpp"
+#include "include/class_structure.h"
 #include "middleware.cpp"
 
 
@@ -116,7 +116,7 @@ void generate_input_file(Configuration &conf)
 bool init_output_folder(Configuration &conf)
 {
     if(system("del/f/a/q ..\\output\\")!=0)
-        puts("error 20: delete output\* failed.");
+        puts("error 20: delete output\\* failed.");
     int number_of_group=conf.TEST_CASE_NUM/conf.CAPACITY_NUM;
     if(conf.TEST_CASE_NUM%conf.CAPACITY_NUM!=0)
         number_of_group++;
@@ -125,17 +125,26 @@ bool init_output_folder(Configuration &conf)
     {
         sprintf(cmd,"cd .> ..\\output\\%d.in",i);
         if(system(cmd)!=0)
+        {
             puts("error 21: can't create file to output.");
+            exit(-1);
+        }
 
         sprintf(cmd,"cd .> ..\\output\\%d.out",i);
         if(system(cmd)!=0)
+        {
             puts("error 22: can't create file to output.");
+            exit(-1);
+        }
 
         sprintf(cmd,"cd .> ..\\output\\%d.slice",i);
         if(system(cmd)!=0)
+        {
             puts("error 23: can't create file to output.");
-
+            exit(-1);
+        }
     }
+    return true;
 }
 
 
@@ -152,10 +161,8 @@ int get_num(string s)
     int ret=0;
     int idx=0,c=0,len=s.length();
     c=s[idx++];
-    while(!(c>='0' && c<='9'  || c=='-') && idx<len)
-    {
+    while(!(((c>='0') && (c<='9'))  || (c=='-')) && (idx<len))
         c=s[idx++];
-    }
     bool flag=1;
     if(c=='-')
     {

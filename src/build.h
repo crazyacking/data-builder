@@ -6,7 +6,7 @@
 #include "include/factory.h"
 #include "include/get_config.h"
 #include "worker.cpp"
-#include "make_standard_code_file.cpp"
+#include "compile_standard_code.cpp"
 
 using namespace std;
 

@@ -49,8 +49,7 @@ bool make_standard_code_file(Configuration& config)
         {
             string standard_main="int main(int argc, char const *argv[])";
             f1=1;
-            bool exit_bracket=false;
-            for(int j=0;j<code_buffer[i].length();++j)
+            for(unsigned int j=0;j<code_buffer[i].length();++j)
             {
                 if(code_buffer[i][j]=='{')
                 {
@@ -62,7 +61,7 @@ bool make_standard_code_file(Configuration& config)
         }
         if(f1)
         {
-            for(int j=0;j<code_buffer[i].length();++j)
+            for(unsigned int j=0;j<code_buffer[i].length();++j)
             {
                 if(code_buffer[i][j]=='{')
                 {
@@ -103,7 +102,7 @@ bool make_standard_code_file(Configuration& config)
         puts("error : can't compile \"..\\bin\\standard_code_file.cpp\" file .");
     	exit(-1);
     }
-    else puts("successful compile standard code file .");
+//    else puts("successful compile standard code file .");
 
     return 1;
 }
@@ -123,7 +122,7 @@ bool write_to_local_file()
 {
     char local_file_name[]="..\\bin\\standard_code_file.cpp";
     ofstream fout(local_file_name);
-    for(int i=0;i<code_buffer.size();++i)
+    for(unsigned int i=0;i<code_buffer.size();++i)
     {
         fout<<code_buffer[i]<<endl;
     }

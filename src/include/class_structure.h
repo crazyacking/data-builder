@@ -13,6 +13,4 @@ public:
     string OUTPUT_PATH;
 };
 
-
-
 #endif
