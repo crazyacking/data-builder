@@ -104,8 +104,8 @@ void generate_input_file(Configuration &conf)
 
         tmp_in.close();
         tmp_out.close();
-
     }
+    printf("successful generate data : %2d\n",current_file_number);
     in_fout.close();
     out_fout.close();
     slice_fout.close();
