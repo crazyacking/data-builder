@@ -53,9 +53,10 @@ void generate_input_file(Configuration &conf)
         tmp_in_fout.close();
         create_tmp_out();
 
+
         if(i!=0 && i%conf.CAPACITY_NUM==0) // change to next file
         {
-            printf("successful generate data : %2d\n",current_file_number);
+            printf("[successful] generate data : %2d\n",current_file_number);
             // close current file
             in_fout.close();
             out_fout.close();
@@ -79,12 +80,13 @@ void generate_input_file(Configuration &conf)
         ifstream tmp_in("..\\bin\\tmp.in");
         ifstream tmp_out("..\\bin\\tmp.out");
 
+
         int cnt_tmp_in=0;
         int cnt_tmp_out=0;
 
         while(getline(tmp_in,data_line))
         {
-            in_fout<<data_line<<endl;;
+            in_fout<<data_line<<endl;
             ++cnt_tmp_in;
         }
 
@@ -105,7 +107,7 @@ void generate_input_file(Configuration &conf)
         tmp_in.close();
         tmp_out.close();
     }
-    printf("successful generate data : %2d\n",current_file_number);
+    printf("[successful] generate data : %2d\n",current_file_number);
     in_fout.close();
     out_fout.close();
     slice_fout.close();
@@ -116,7 +118,7 @@ void generate_input_file(Configuration &conf)
 bool init_output_folder(Configuration &conf)
 {
     if(system("del/f/a/q ..\\output\\")!=0)
-        puts("error 20: delete output\\* failed.");
+        puts("[error 20] delete output\\* failed.");
     int number_of_group=conf.TEST_CASE_NUM/conf.CAPACITY_NUM;
     if(conf.TEST_CASE_NUM%conf.CAPACITY_NUM!=0)
         number_of_group++;
@@ -126,21 +128,21 @@ bool init_output_folder(Configuration &conf)
         sprintf(cmd,"cd .> ..\\output\\%d.in",i);
         if(system(cmd)!=0)
         {
-            puts("error 21: can't create file to output.");
+            puts("[error 21] can't create file to output.");
             exit(-1);
         }
 
         sprintf(cmd,"cd .> ..\\output\\%d.out",i);
         if(system(cmd)!=0)
         {
-            puts("error 22: can't create file to output.");
+            puts("[error 22] can't create file to output.");
             exit(-1);
         }
 
         sprintf(cmd,"cd .> ..\\output\\%d.slice",i);
         if(system(cmd)!=0)
         {
-            puts("error 23: can't create file to output.");
+            puts("[error 23] can't create file to output.");
             exit(-1);
         }
     }

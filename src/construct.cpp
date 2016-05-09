@@ -20,7 +20,7 @@
 void create_one_test_case(ofstream &cout)
 {
     // 以a+b为例,随机两个数，用cout输出(注意:这儿的cout是经过重载的，该函数中的所有输出都只能用cout)
-    cout<<rand_number(0,0xffffff)<<" "<<rand_number(0,0xffffff)<<endl;
+    cout<<rand_number(1,0xfffff)<<" "<<rand_number(1,0xffffff)<<endl;
 }
 
 

@@ -97,11 +97,15 @@ bool make_standard_code_file(Configuration& config)
 
     write_to_local_file();
 
+    puts("[successful] create bin\\standard_code_file.cpp ");
+
     if(compile_standard_code_file()!=0)
     {
-        puts("error : can't compile \"..\\bin\\standard_code_file.cpp\" file .");
+        puts("[error 16] can't compile \"..\\bin\\standard_code_file.cpp\" file .");
     	exit(-1);
     }
+
+    puts("[successful] compile bin\\standard_code_file.cpp ,and generate file standard_code_file.exe ");
 //    else puts("successful compile standard code file .");
 
     return 1;
