@@ -21,9 +21,18 @@ void init_conf(map<string,string>& config,Configuration& conf);
 void generate_input_file(Configuration &conf)
 {
     init_output_folder(conf);
-
     int in_start_line=1,in_end_line=1;
     int out_start_line=1,out_end_line=1;
+
+
+    /**< Multi_Test_Case */
+    if(conf.Multi_Test_Case)
+    {
+        in_start_line=2,in_end_line=2;
+        out_start_line=1,out_end_line=1;
+    }
+
+
 
     int current_file_number=1;
 
@@ -40,6 +49,13 @@ void generate_input_file(Configuration &conf)
     sprintf(current_slice_file_name,"..\\output\\%d.slice",current_file_number);
 
     in_fout.open(current_in_file_name);
+
+    /**< Multi_Test_Case */
+    if(conf.Multi_Test_Case)
+    {
+        in_fout<<conf.CAPACITY_NUM<<endl;
+    }
+
     out_fout.open(current_out_file_name);
     slice_fout.open(current_slice_file_name);
 
@@ -51,6 +67,8 @@ void generate_input_file(Configuration &conf)
         ofstream tmp_in_fout("..\\bin\\tmp.in");
         create_one_test_case(tmp_in_fout);
         tmp_in_fout.close();
+
+
         create_tmp_out();
 
 
@@ -63,14 +81,31 @@ void generate_input_file(Configuration &conf)
             slice_fout.close();
 
             current_file_number++;
+
+
             in_start_line=1,in_end_line=1;
             out_start_line=1,out_start_line=1;
+
+            /**< Multi_Test_Case */
+            if(conf.Multi_Test_Case)
+            {
+                in_start_line=2,in_end_line=2;
+                out_start_line=1,out_end_line=1;
+            }
 
             sprintf(current_in_file_name,"..\\output\\%d.in",current_file_number);
             sprintf(current_out_file_name,"..\\output\\%d.out",current_file_number);
             sprintf(current_slice_file_name,"..\\output\\%d.slice",current_file_number);
 
             in_fout.open(current_in_file_name);
+
+
+            /**< Multi_Test_Case */
+            if(conf.Multi_Test_Case)
+            {
+                in_fout<<conf.CAPACITY_NUM<<endl;
+            }
+
             out_fout.open(current_out_file_name);
             slice_fout.open(current_slice_file_name);
         }
@@ -107,6 +142,7 @@ void generate_input_file(Configuration &conf)
         tmp_in.close();
         tmp_out.close();
     }
+
     printf("[successful] generate data : %2d\n",current_file_number);
     in_fout.close();
     out_fout.close();
@@ -123,7 +159,7 @@ bool init_output_folder(Configuration &conf)
     if(conf.TEST_CASE_NUM%conf.CAPACITY_NUM!=0)
         number_of_group++;
     char cmd[200];
-    for(int i=1;i<=number_of_group;++i)
+    for(int i=1; i<=number_of_group; ++i)
     {
         sprintf(cmd,"cd .> ..\\output\\%d.in",i);
         if(system(cmd)!=0)
@@ -156,6 +192,7 @@ void init_conf(map<string,string>& config,Configuration& conf)
     conf.CAPACITY_NUM=get_num(config["CAPACITY_NUM"]);
     conf.CREATE_SLICE=get_bool(config["CREATE_SLICE"]);
     conf.OUTPUT_PATH=config["OUTPUT_PATH"];
+    conf.Multi_Test_Case=get_bool(config["Multi_Test_Case"]);
 }
 
 int get_num(string s)

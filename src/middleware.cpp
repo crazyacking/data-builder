@@ -5,7 +5,7 @@
 
 bool create_tmp_out()
 {
-    return system("..\\bin\\standard_code_file.exe   ..\\bin\\tmp.in   ..\\bin\\tmp.out");
+    return system("..\\bin\\compiled_standard_code.exe   ..\\bin\\tmp.in   ..\\bin\\tmp.out");
 }
 
 

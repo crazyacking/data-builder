@@ -20,6 +20,7 @@ void load_config_from_local(Configuration &config)
         exit(-1);
     }
     init_conf(conf_map,config);
+    PrintConfig(conf_map);
 }
 
 int main()

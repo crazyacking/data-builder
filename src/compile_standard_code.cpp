@@ -25,7 +25,7 @@ In order to add redirect code to main() function later.
 bool make_standard_code_file(Configuration& config)
 {
     code_buffer.clear();
-    ifstream fin("..\\standard_code_file\\main.cpp");
+    ifstream fin("..\\standard_code_file\\standard_code.cpp");
 //    ofstream fout("..\\bin\\main.cpp");
     string code_line;
 
@@ -91,22 +91,22 @@ bool make_standard_code_file(Configuration& config)
     }
     if(row==0 && col==0)
     {
-    	puts("error : can't find main() function in standard code file, or \"..\\standard_code_file\\main.cpp\" not exist.");
+    	puts("error : can't find main() function in standard code file, or \"..\\standard_code_file\\standard_code.cpp\" not exist.");
     	exit(-1);
     }
 
     write_to_local_file();
 
-    puts("[successful] create bin\\standard_code_file.cpp ");
+    puts("[successful] create bin\\compiled_standard_code.cpp ");
 
     if(compile_standard_code_file()!=0)
     {
-        puts("[error 16] can't compile \"..\\bin\\standard_code_file.cpp\" file .");
+        puts("[error 16] can't compile \"..\\bin\\compiled_standard_code.cpp\" .");
     	exit(-1);
     }
 
-    puts("[successful] compile bin\\standard_code_file.cpp ,and generate file standard_code_file.exe ");
-//    else puts("successful compile standard code file .");
+    puts("[successful] compile bin\\compiled_standard_code.cpp .");
+    puts("[successful] created bin\\compiled_standard_code.exe .");
 
     return 1;
 }
@@ -124,7 +124,7 @@ bool is_main_func(string code_line)
 
 bool write_to_local_file()
 {
-    char local_file_name[]="..\\bin\\standard_code_file.cpp";
+    char local_file_name[]="..\\bin\\compiled_standard_code.cpp";
     ofstream fout(local_file_name);
     for(unsigned int i=0;i<code_buffer.size();++i)
     {
@@ -136,7 +136,7 @@ bool write_to_local_file()
 
 bool compile_standard_code_file()
 {
-    return system("g++ -o ..\\bin\\standard_code_file.exe    ..\\bin\\standard_code_file.cpp");
+    return system("g++ --std=c++11 -o ..\\bin\\compiled_standard_code.exe    ..\\bin\\compiled_standard_code.cpp");
 }
 
 

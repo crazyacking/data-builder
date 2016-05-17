@@ -34,3 +34,38 @@
 1462777862 g:\nowcoder\data-builder\src\compile_standard_code.cpp
 	"build.h"
 
+1463453829 source:h:\code_fantasy\data-builder\src\main.cpp
+	"build.h"
+
+1462713655 h:\code_fantasy\data-builder\src\build.h
+	"include/mingw.h"
+	"include/factory.h"
+	"include/get_config.h"
+	"worker.cpp"
+	"compile_standard_code.cpp"
+
+1462714245 h:\code_fantasy\data-builder\src\include\mingw.h
+	<bits/stdc++.h>
+
+1462624045 h:\code_fantasy\data-builder\src\include\factory.h
+	"mingw.h"
+
+1462711791 h:\code_fantasy\data-builder\src\include\get_config.h
+	"mingw.h"
+
+1463454699 h:\code_fantasy\data-builder\src\worker.cpp
+	"include/mingw.h"
+	"construct.cpp"
+	"include/class_structure.h"
+	"middleware.cpp"
+
+1463453073 h:\code_fantasy\data-builder\src\construct.cpp
+
+1463453583 h:\code_fantasy\data-builder\src\include\class_structure.h
+
+1462951659 h:\code_fantasy\data-builder\src\middleware.cpp
+	<windows.h>
+
+1463147525 h:\code_fantasy\data-builder\src\compile_standard_code.cpp
+	"build.h"
+
