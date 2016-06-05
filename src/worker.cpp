@@ -68,9 +68,7 @@ void generate_input_file(Configuration &conf)
         create_one_test_case(tmp_in_fout);
         tmp_in_fout.close();
 
-
         create_tmp_out();
-
 
         if(i!=0 && i%conf.CAPACITY_NUM==0) // change to next file
         {

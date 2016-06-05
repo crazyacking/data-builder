@@ -1,78 +1,90 @@
+#include <string>
+#include <vector>
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX_LEN=1000030;
-char s[MAX_LEN];
-int idx[200];
-int main()
+//#define forIter(I,C) for(typeof((C).end()) I=(C).begin(); I!=(C).end(); ++I)
+typedef vector<string> VS;
+
+struct CompanyName
 {
-    int T;
-    scanf("%s",s);
-    for(int i=0;i<200;++i)
-        idx[i]=-1;
-    int len=strlen(s);
-    for(int i=0;i<len;++i)
+    bool isVowel(char c)
     {
-        if(idx[s[i]]==-1)
-            idx[s[i]]=i;
-        else idx[s[i]]=-2;
+        return strchr("AaEeIiOoUu", c) != 0;
     }
-    char ans='\0';
-    for(int i=0;i<200;++i)
+    int getScore(const string& s)
     {
-        if(idx[i]>=0)
+        int ret = 0;
+        int v = 0, c = 0;
+//        forIter ( i, s )
+        for(auto i:s)
         {
-            if(ans=='\0' || idx[i]<idx[ans])
-                ans=i;
-        }
-    }
-    printf("%c\n",ans);
-    return 0;
-}
-
-
-
-/**<
-
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-typedef long long ll;
-
-const int MAXN=1000000;
-
-int idx[256];
-int T;
-char str[MAXN+5];
-
-int main()
-{
-    for(scanf("%d",&T); T--;)
-    {
-        scanf("%s",str+1);
-        memset(idx,0,sizeof(idx));
-        for(int i=1; str[i]; i++)
-        {
-            if(idx[str[i]]==0)
+            if ( isVowel(i) )
             {
-                idx[str[i]]=i;
+                if ( c )
+                {
+                    ret += 2*c-1;
+                    c = 0;
+                }
+                ++v;
             }
             else
-                idx[str[i]]=-1;
-        }
-        char ans='\0';
-        for(int i=0x21; i<0x7F; i++)
-        {
-            if(idx[i]>0)
             {
-                if(ans==0||idx[ans]>idx[i]) ans=i;
+                if ( v )
+                {
+                    ret += 1;
+                    v = 0;
+                }
+                ++c;
             }
         }
-        printf("%c\n",ans);
+        if ( c )
+        {
+            ret += 2*c-1;
+            c = 0;
+        }
+        if ( v )
+        {
+            ret += 1;
+            v = 0;
+        }
+        return ret;
+    }
+    string shortestProposal(VS proposals)
+    {
+        string ret;
+        int best = -1;
+        for(auto i:proposals)
+        {
+            int s = getScore(i);
+            if ( best < 0 || s < best )
+            {
+                best = s;
+                ret = i;
+            }
+        }
+        return ret;
+    }
+};
+
+int main()
+{
+//    freopen("G:\\nowcoder\\1.in","r",stdin);
+//    freopen("G:\\nowcoder\\1.out","w",stdout);
+    int n;
+    while(cin>>n)
+    {
+        vector<string> vs(n);
+        for(int i=0;i<n;++i)
+        {
+            cin>>vs[i];
+        }
+        CompanyName cn;
+        string ans=cn.shortestProposal(vs);
+        cout<<ans<<endl;
     }
     return 0;
 }
-
-
- */
+/*
+aaa AAa aaA AAA AaA Aaa
+*/

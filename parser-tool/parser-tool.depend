@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1463835403 source:h:\code_fantasy\parser-tool\main.cpp
+	<bits/stdc++.h>
+	"parser.h"
+
+1464828568 h:\code_fantasy\parser-tool\parser.h
+	<bits/stdc++.h>
+
